@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyDdQHojl6+q+ib5BXKwTQQe6DuuqL2YbTa"
+        crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        .img-thumbnail {
+            border: 2px solid #007bff;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            color: #fff;
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+    <title>Image Classification Result</title>
+</head>
+
+<body class="container mt-5">
+    <h1 class="text-center">Image Classification Result</h1>
+    <div class="text-center mt-4">
+        <img src="{{ url_for('static', filename=image_path) }}" alt="Uploaded Image" class="img-thumbnail">
+        <p class="mt-2">Classificated Category: {{ predicted_category }}</p>
+        <a href="/" class="btn btn-primary">Kembali</a>
+    </div>
+</body>
+
+</html>

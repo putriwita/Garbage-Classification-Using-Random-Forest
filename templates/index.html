@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyDdQHojl6+q+ib5BXKwTQQe6DuuqL2YbTa"
+        crossorigin="anonymous">
+    <!-- Tambahkan skrip SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        .custom-file-input {
+            /* Hapus display: none; */
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            color: #fff;
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+    <title>Image Classification</title>
+</head>
+
+<body class="container mt-5">
+    <h1 class="text-center">Image Classification</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data"
+        class="mt-4 mx-auto d-flex flex-column align-items-center justify-content-center"
+        onsubmit="return validateForm()">
+        <input type="file" class="custom-file-input" id="image_file" name="image_file" accept="image/*" required>
+        <button type="submit" class="btn btn-primary mt-2">Classify</button>
+    </form>
+
+    <!-- Tambahkan skrip JavaScript -->
+    <script>
+        function validateForm() {
+            // Periksa apakah file dipilih
+            var inputFile = document.getElementById('image_file');
+            if (inputFile.files.length === 0) {
+                // Tampilkan swal jika tidak ada file yang dipilih
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please choose a file before classificating!',
+                });
+                return false; // Mencegah pengiriman formulir
+            }
+            return true; // Lanjutkan dengan pengiriman formulir jika file dipilih
+        }
+    </script>
+</body>
+
+</html>
